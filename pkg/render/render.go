@@ -6,17 +6,33 @@ import (
 	"log"
 	"net/http"
 	"path/filepath"
+
+	"github.com/marcionps/web-server-test/pkg/config"
 )
 
+var app *config.AppConfig
+
+// NewTemplate sets the config for the template package
+func NewTemplate(a *config.AppConfig) {
+	app = a
+}
+
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
-	tc, err := createTemplateCache()
-	if err != nil {
-		log.Fatal(err)
+	var tc map[string]*template.Template
+	var err error
+
+	if app.UseCache {
+		tc = app.TemplateCache
+	} else {
+		tc, err = CreateTemplateCache()
+		if err != nil {
+			log.Println(err)
+		}
 	}
 
 	t, ok := tc[tmpl]
 	if !ok {
-		log.Fatal(err)
+		log.Fatal("Could not get template from template cache")
 	}
 
 	buf := new(bytes.Buffer)
@@ -32,7 +48,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 	}
 }
 
-func createTemplateCache() (map[string]*template.Template, error) {
+func CreateTemplateCache() (map[string]*template.Template, error) {
 	myCache := map[string]*template.Template{}
 
 	pages, err := filepath.Glob("./templates/*.page.tmpl")
