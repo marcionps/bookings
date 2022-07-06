@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/marcionps/web-server-test/pkg/config"
-	"github.com/marcionps/web-server-test/pkg/models"
+	"github.com/marcionps/bookings/pkg/config"
+	"github.com/marcionps/bookings/pkg/models"
 )
 
 var app *config.AppConfig

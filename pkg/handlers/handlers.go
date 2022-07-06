@@ -3,9 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/marcionps/web-server-test/pkg/config"
-	"github.com/marcionps/web-server-test/pkg/models"
-	"github.com/marcionps/web-server-test/pkg/render"
+	"github.com/marcionps/bookings/pkg/config"
+	"github.com/marcionps/bookings/pkg/models"
+	"github.com/marcionps/bookings/pkg/render"
 )
 
 // Repo the repository used by the handlers

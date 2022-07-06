@@ -1,4 +1,4 @@
-module github.com/marcionps/web-server-test
+module github.com/marcionps/bookings
 
 go 1.18
 
