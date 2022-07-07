@@ -4,11 +4,13 @@ This is the repository for a web server for a bookings and reservations service 
 
 - Udemy course: [Building Modern Web Applications with Go (Golang)](https://www.udemy.com/course/building-modern-web-applications-with-go/) by Trevor Sawler
 
+--- 
 
 go - 1.18
 
-[chi](https://github.com/go-chi/chi/v5) - 5.0.7
+External dependencies:
+- [chi](https://github.com/go-chi/chi/) - 5.0.7
 
-[scs](github.com/alexedwards/scs/v2) - 2.5.0 
+- [scs](https://github.com/alexedwards/scs/) - 2.5.0 
 
-[nosurf](github.com/justinas/nosurf) - 1.1.1 
+- [nosurf](https://github.com/justinas/nosurf) - 1.1.1 
