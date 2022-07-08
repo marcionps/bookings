@@ -10,15 +10,15 @@
 
     <title>Hello, world!</title>
     <style>
-        .my-footer{
+        .my-footer {
             height: 5em;
             background-color: #163b65;
             margin-top: 1.5em;
-            padding: 1em; 
+            padding: 1em;
             color: white;
             font-size: 80%;
         }
-        
+
         .room-image {
             max-width: 50%;
         }
@@ -63,12 +63,30 @@
 
     <div class="container">
         <div class="row">
-            <div class="col">
-                <h1>This will be the reservation page</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h1 class="mt-5">Search for Availability</h1>
+                <form action="" method="">
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="start_date">Starting Date</label>
+                                <input type="date" class="form-control" id="start_date" name="start_date"
+                                    aria-describedby="startDateHelp" required>
+                                <small id="startDateHelp" class="form-text text-muted">Enter your starting date</small>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="end_date">Ending Date</label>
+                                <input type="date" class="form-control" id="end_date" name="end_date"
+                                    aria-describedby="endDateHelp" required>
+                                <small id="endDateHelp" class="form-text text-muted">Enter your ending date</small>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search Availability</button>
+                </form>
             </div>
         </div>
     </div>
