@@ -180,19 +180,14 @@
                     focusConfirm: false,
                     showCancelButton: true,
                     willOpen: () => {
-                        const elem = document.getElementById("reservation-dates-model");
-                        let popUp = document.getElementsByClassName("swal2-popup")[0]
-                        const rp = new DateRangePicker(elem, {
-                            buttonClass: "btn",
-                            autohide: true,
-                            container: popUp,
-                            format: "yyyy-mm-dd",
-                            showOnFocus: true,
-                        })
+                        if (c.willOpen !== undefined) {
+                            c.willOpen()
+                        }
                     },
                     didOpen: () => {
-                        document.getElementById("start").removeAttribute("disabled")
-                        document.getElementById("end").removeAttribute("disabled")
+                        if (c.didOpen !== undefined) {
+                            c.didOpen()
+                        }
                     },
                     preConfirm: () => {
                         return [
@@ -203,7 +198,17 @@
                 });
 
                 if (formValues) {
-                    Swal.fire(JSON.stringify(formValues));
+                    if (formValues.dismiss !== Swal.DismissReason.cancel) {
+                        if (formValues !== "") {
+                            if (c.callback !== undefined) {
+                                c.callback(formValues)
+                            }
+                        } else {
+                            c.callback(false)
+                        }
+                    }
+                } else {
+                    c.callback(false)
                 }
             }
 
