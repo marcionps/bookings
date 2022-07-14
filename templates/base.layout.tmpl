@@ -130,6 +130,18 @@
             Swal.fire({ title, html, icon, confirmButtonText });
         }
 
+        {{with .Error}}
+        notify("{{.}}", "error")
+        {{end}}
+
+        {{with .Flash}}
+        notify("{{.}}", "success")
+        {{end}}
+
+        {{with .Warning}}
+        notify("{{.}}", "warning")
+        {{end}}
+
         function Prompt() {
             let toast = function (c) {
                 const { title = "", icon = "success", position = "top-end" } = c;
