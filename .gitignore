@@ -22,3 +22,6 @@ go.work
 
 # compiled file
 bookings
+
+# Database file
+database.yml
