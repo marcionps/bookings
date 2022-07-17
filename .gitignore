@@ -19,3 +19,6 @@ go.work
 
 # IDE files
 .idea
+
+# compiled file
+bookings
